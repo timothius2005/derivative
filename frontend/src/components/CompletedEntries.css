@@ -1,0 +1,9 @@
+
+table{
+    text-align: left;
+    table-layout: fixed;
+    color:antiquewhite;
+}
+td {
+    border-collapse:collapse;
+}
