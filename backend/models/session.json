@@ -1,0 +1,13 @@
+{
+    "_id":{"$oid":"660856145855f348500df379"},
+    "ProgramName":"Lee Hayward 12 week wokrout program ",
+    "WorkoutDay":"Monday 1",
+    "Exercises":
+    [
+        ["Barbell Squat","36110000000",{"$numberInt":"5"},{"$numberInt":"5"},{"$numberInt":"60"},"No"],
+        ["Barbell Deadlift","18110000008",{"$numberInt":"5"},{"$numberInt":"5"},{"$numberInt":"120"},"No"],
+        ["Standing Calf Raise","14900000004",{"$numberInt":"5"},{"$numberInt":"10"},{"$numberInt":"45"},"No"],
+        ["Roman Chair Leg Raise","27400000000",{"$numberInt":"5"},{"$numberInt":"10"},{"$numberInt":"45"},"No"],
+        ["Incline Situp","350000003300",{"$numberInt":"3"},{"$numberInt":"20"},{"$numberInt":"30"},"No"]
+    ]
+}

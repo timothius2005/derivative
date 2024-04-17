@@ -20,9 +20,11 @@ connection.once('open', () => {
 
 const exercisesRouter = require('./routes/exercises');
 const entriesRouter = require('./routes/entries');
+const sessionsRouter = require('./routes/sessions');
 
 app.use('/exercises', exercisesRouter);
 app.use('/entries', entriesRouter);
+app.use('/sessions', sessionsRouter);
 
 
 app.listen(port, () => {

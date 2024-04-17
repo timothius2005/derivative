@@ -52,8 +52,7 @@ const RecordEntry = () => {
         // move the array up one
         // add the next set to the active text
     }
-
-    
+  
     return (
         <div className="grid-container">
                      
@@ -107,17 +106,7 @@ const RecordEntry = () => {
                 )
             })}
             </div>
-            
-            <input list="ice-cream-flavors"/>
-            <datalist id="ice-cream-flavors">
-                {session.map(sessionSet => {
-                    return (
-                        <div key={sessionSet.setNum}>
-                            <option>{sessionSet.exerciseName}</option>
-                        </div>
-                    )
-                })}
-            </datalist> 
+        
             
         </div>
     );
