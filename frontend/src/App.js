@@ -2,20 +2,23 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 
-import RecordEntry from './components/RecordEntry';
-import SampleCycle from './components/SampleCyle';
-import SampleDroplist from './components/SampleDroplist';
-import SessionList from './components/SampleSession';
-import UpNext from './components/UpNext';
+import Home from './pages/Home';
+import About from './pages/About';
+import ActiveSession from './pages/ActiveSession';
+import Layout from './pages/Layout';
+import  './App.css';
 
 
 function App() {
 
   return (
-    <div>
+    <div className='App'>
       <Routes>
-        <Route exact path='/' element={ <SampleDroplist />} />
-        <Route  path='' />
+        <Route path='/' element={<Layout />}>
+          <Route index element={ <Home />} />
+          <Route  path='About' element={<About />} />
+          <Route  path='ActiveSession' element={<ActiveSession />} />
+        </Route>
       </Routes>
     </div>
   );

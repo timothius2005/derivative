@@ -1,52 +1,76 @@
 import React, { useEffect, useState } from "react";
  
-export default function UpNext() {
+export default function UpNext(count) {
+    const result = [];
     const [sessions, setSessions] = useState([]);
-    const sessionArr = [
-        {
-        "_id":{"$oid":"660856145855f348500df379"},
-        "ProgramName":"Lee Hayward 12 week wokrout program ",
-        "WorkoutDay":"Monday 1",
-        "Exercises":
-            [
-                ["Barbell Squat","36110000000", '5',"5","60","No"],
-                ["Barbell Deadlift","18110000008","5","5","120","No"],
-                ["Standing Calf Raise","14900000004","5","10","45","No"],
-                ["Roman Chair Leg Raise","27400000000","5","10","45","No"],
-                ["Incline Situp","350000003300","3","20","30","No"]
-            ]
+    
+    console.log(count)
+    useEffect(() => {
+        async function getSessions() {
+            const response = await fetch(`http://localhost:5000/sessions/`);
+        
+            if (!response.ok) {
+            const message = `An error occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+            }
+        
+            const sessions = await response.json();
+            setSessions(sessions);
         }
-    ]
-   
+        
+        getSessions();
+        
+        return;
+        }, [sessions.length]);
+        
+        const UpNextList = () => {
+            sessions[0]?.Exercises.forEach((exercise) => {
+                const [exerciseName, , sets, repetitions, rest] = exercise;
+                for (let i = 0; i < sets; i++) {
+                  result.push([exerciseName, repetitions, rest]);
+                }
+            });    
+            return result.slice(count).map((item) => {
+                return(
+                    <tr>
+                        <td>
+                            {item[0]}
+                        </td>
+                        <td>
+                            {item[1]}
+                        </td>
+                        <td>
+                            {item[2]}
+                        </td>
+                        </tr>
+                ) 
+            })
+    
+        }   
+
     // This method will map out the sessions
     return (
-        <div>       
-            {sessionArr.map((session, outerIndex) => {             
-                return (  
-                    <div>
-                        <h3>Up Next</h3>              
-                        {session.Exercises.map((exercise, innerIndex) => {
-                                const result = [];
-                                const repeatedStrings = Array.from({length: exercise[2]}, () => [exercise[0], exercise[2], exercise[3], exercise[4]]);
-                                result.push(...repeatedStrings);
-
-                                return (
-                                    <div>
-                                     {result.map((item) => {
-                                        return(
-                                            <>
-                                                movement: {item[0]}, reps: {item[3]}, rest: {item[4]}
-                                            <br />
-                                            </>
-                                        ) 
-                                     })
-                                    }
-                                    </div>
-                                );
-                            })}
-                    </div>
-                )            
-            })}
+        <div>
+            <h3>Up Next</h3>
+            <table>
+                <tr>
+                    <th>
+                        Movement
+                    </th>
+                    <th>
+                        Repititions
+                    </th>
+                    <th>
+                        Resistance
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                <tbody>
+                    {UpNextList()}
+                </tbody>        
+           </table>
         </div>
     );
 }

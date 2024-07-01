@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './CompletedEntries.css';
+
  
 const Record = (props) => (
  <tr>

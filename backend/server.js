@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
+//Mongo
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -21,12 +22,15 @@ connection.once('open', () => {
 const exercisesRouter = require('./routes/exercises');
 const entriesRouter = require('./routes/entries');
 const sessionsRouter = require('./routes/sessions');
+const movementsRouter = require('./routes/movement');
 
 app.use('/exercises', exercisesRouter);
 app.use('/entries', entriesRouter);
 app.use('/sessions', sessionsRouter);
+app.use('/movement', movementsRouter);
 
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
+ 

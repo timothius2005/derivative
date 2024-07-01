@@ -1,23 +1,17 @@
 .grid-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    width: 50%;
-    background-color: #3A0311;
+    margin-left: 5%;
+    width: 75%;
+    color: #011627;
+    background-color: #f6f7f8;
     
   }
 
   .group1{
     display: grid;
-    gap: 10px;
-    gap: 3px;
-    padding: 5px;
-    grid-template-columns: repeat(3,33.3%);
-    column-gap: 10px;
-    padding: 10px;
+    gap: 1px;
+    padding: 3px;
+    grid-template-columns: repeat(4, 25%);
+    column-gap: 1px;
   }
   label {display:block;}
 textarea { display:block;}
