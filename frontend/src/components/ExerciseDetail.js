@@ -32,7 +32,7 @@ const ExerciseDetail = () => {
                 <option value="Dumbbell">Dumbbell</option>
                 <option value="Cable">Cable</option>
             </select>
-            <select value={equipment} onChange={handleEqMod2Change}>
+            <select value={eqMod2} onChange={handleEqMod2Change}>
                 <option value="Barbell">Barbell</option>
                 <option value="Dumbbell">Dumbbell</option>
                 <option value="Cable">Cable</option>
